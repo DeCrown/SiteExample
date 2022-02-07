@@ -1,0 +1,27 @@
+
+<div class="article-preview">
+
+	<div class="article-preview-media {{#if this.character}}character{{/if}}{{#if this.author}}author{{/if}}">
+		{{#if this.character}}
+			<img class="article-preview-image" src="{{this.image}}">
+			<img class="article-preview-flag" src="{{this.flag}}">
+		{{/if}}
+		{{#if this.author}}
+			<div class="article-preview-author">
+				Автор:<div class="article-preview-author-name">{{this.author_name}}</div>
+			</div>
+			<div class="article-preview-type"><img class="article-preview-type-icon" src="images/tutorial.svg">Обучающая статья</div>
+		{{/if}}
+		<div class="article-preview-views">
+			<div class="article-preview-views-line"></div>
+			<div class="article-preview-views-count">{{this.views}}<img class="article-preview-views-icon" src="images/views.svg"></div>
+		</div>
+	</div>
+	
+	<div class="article-preview-title-box">
+		<div class="article-preview-title-line"></div>
+		<div class="article-preview-title">{{this.title}}</div>
+	</div>
+	
+	<div class="article-preview-text">{{this.text}}</div>
+</div>

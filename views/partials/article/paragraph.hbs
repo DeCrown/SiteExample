@@ -1,0 +1,12 @@
+{{#if this.title}}
+<div class="paragraph with-title">
+	<div class="paragraph-header">
+		<div class="paragraph-header-text">{{this.title}}</div>
+	</div>
+	{{this.text}}
+</div>
+{{else}}
+<div class="paragraph">
+	{{this.text}}
+</div>
+{{/if}}

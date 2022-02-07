@@ -1,0 +1,47 @@
+<script src="js/mobile/article.js"></script>
+{{#with article}}
+	<div class="auto" data-id="{{this._id}}">
+		<div class="auto-photos" data-photo="0" data-loaded="0" data-photos-count="{{this.photos_count}}">
+			<div class="auto-photos-container">
+				{{#each this.photos}}<div class="auto-photo-container"><img alt="{{this.description}}" class="auto-photo" onload="imageLoaded(this)" src="images/articles/{{this.filename}}"></div>{{/each}}
+			</div>
+		</div>
+		
+		<div class="auto-photos-menu">
+			<div class="auto-photos-count">
+				фото <span class="auto-photos-count-this">1</span> из <span class="auto-photos-count-all">{{this.photos_count}}</span>
+			</div>
+			<div class="auto-photos-button auto-photos-button-left">
+				<img class="auto-photos-button-icon" src="images/icons/photo_button_left.svg">
+			</div>
+			<div class="auto-photos-button auto-photos-button-right">
+				<img class="auto-photos-button-icon" src="images/icons/photo_button_right.svg">
+			</div>
+		</div>
+		
+		<div class="auto-title"><h1>{{this.title}}</h1></div>
+		<div class="auto-table">
+			<div class="auto-table-element">
+				<div class="auto-table-element-title"><h2>Год выпуска</h2></div>
+				<div class="auto-table-element-value">{{this.year}}</div>
+			</div>
+			<div class="auto-table-element">
+				<div class="auto-table-element-title"><h2>Пробег</h2></div>
+				<div class="auto-table-element-value">{{MILEAGE this.mileage}} км</div>
+			</div>
+			<div class="auto-table-element">
+				<div class="auto-table-element-title"><h2>Двигатель</h2></div>
+				<div class="auto-table-element-value">{{CAPACITY this.engine_capacity}}</div>
+				<div class="auto-table-element-value">{{this.engine_power}} л.с.</div>
+			</div>
+			<div class="auto-table-element">
+				<div class="auto-table-element-title"><h2>Коробка</h2></div>
+				<div class="auto-table-element-value">{{TRANSMISSION this.transmission}}</div>
+			</div>
+		</div>
+		
+		<div class="auto-text">{{this.description}}</div>
+		
+		<div class="auto-price"><span class="auto-price-value">{{PRICE this.price}}</span> РУБ</div>
+	</div>
+{{/with}}

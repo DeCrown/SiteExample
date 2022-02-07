@@ -1,0 +1,7 @@
+.error-404-text, .error-500-text {
+	text-align: center;
+	font-size: 30px;
+	position: relative;
+	padding: 30px;
+	background: #000C;
+}

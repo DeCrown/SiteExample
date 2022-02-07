@@ -1,0 +1,31 @@
+<div class="in-history {{#if this.choosed}}active{{/if}}">
+	{{#unless this.last}}
+		<div class="in-history-line"></div>
+	{{/unless}}
+	
+	{{#if this.before_more}}
+		<div class="in-history-before-more">
+			<div class="in-history-more-line-center"></div>
+			<div class="in-history-more-line-left"></div>
+			<div class="in-history-more-line-right"></div>
+			<div class="in-history-more-point-left"></div>
+			<div class="in-history-more-point-right"></div>
+		</div>
+	{{/if}}
+	
+	{{#if this.after_more}}
+		<div class="in-history-after-more">
+			<div class="in-history-more-line-center"></div>
+			<div class="in-history-more-line-left"></div>
+			<div class="in-history-more-line-right"></div>
+			<div class="in-history-more-point-left"></div>
+			<div class="in-history-more-point-right"></div>
+		</div>
+	{{/if}}
+
+	<div class="in-history-point"></div>
+	
+	<div class="in-history-title">{{this.title}}</div>
+	<div class="in-history-period">{{this.period}}</div>
+	<img class="in-history-icon" src="{{this.icon}}">
+</div>

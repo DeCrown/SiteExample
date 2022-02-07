@@ -1,0 +1,9 @@
+<div data-id="{{this.id}}" class="chapter {{#if this.active}}active{{/if}}">
+	{{#with this.description}}
+		{{> article/description}}
+	{{/with}}
+	
+	{{#with this.paragraphs}}
+		{{> article/paragraphs}}
+	{{/with}}
+</div>

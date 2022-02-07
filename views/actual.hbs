@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/actual.css">
+<script src="js/actual.js"></script>
+
+<div class="content-container">
+
+	<div class="sorting-menu">
+		СОРТИРОВАТЬ ПО 
+		
+		<span class="common-input-box" id="sorting-menu-switch">
+			<select>
+				<option selected value="actual">АКТУАЛЬНОСТИ</option>
+				<option value="popular">ПОПУЛЯРНОСТИ</option>
+				<option value="new">НОВИЗНЕ</option>
+			</select>
+		</span>
+	</div>
+	
+	<div class="content">
+	
+		{{#each columns}}
+			<div class="column">
+				{{#each this}}
+					{{> preview}}
+				{{/each}}
+			</div>
+		{{/each}}
+	
+	</div>
+
+</div>

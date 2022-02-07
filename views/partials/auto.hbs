@@ -1,0 +1,48 @@
+<div class="unit-auto" data-title="{{this.title}}" data-id="{{this._id}}">
+	<div class="unit-auto-photos" data-photo="0" data-photos-count="{{this.photos_count}}">
+		<div class="unit-auto-photos-container">
+			{{#each this.photos}}<div class="unit-auto-photo-container"><img alt="{{this.description}}" class="unit-auto-photo" src="images/articles/{{this.filename}}"></div>{{/each}}
+		</div>
+		
+		<div class="unit-auto-photos-menu">
+			<div class="unit-auto-photos-count">
+				фото <span class="unit-auto-photos-count-this">1</span> из <span class="unit-auto-photos-count-all">{{this.photos_count}}</span>
+			</div>
+			<div class="unit-auto-photos-button unit-auto-photos-button-left">
+				<img class="unit-auto-photos-button-icon" src="images/icons/photo_button_left.svg">
+			</div>
+			<div class="unit-auto-photos-button unit-auto-photos-button-right">
+				<img class="unit-auto-photos-button-icon" src="images/icons/photo_button_right.svg">
+			</div>
+		</div>
+	</div>
+	
+	<div class="unit-auto-title"><h2>{{this.title}}</h2></div>
+	<div class="unit-auto-table">
+		<div class="unit-auto-table-element">
+			<div class="unit-auto-table-element-title"><h3>Год выпуска</h3></div>
+			<div class="unit-auto-table-element-value">{{this.year}}</div>
+		</div>
+		<div class="unit-auto-table-element">
+			<div class="unit-auto-table-element-title"><h3>Пробег</h3></div>
+			<div class="unit-auto-table-element-value">{{MILEAGE this.mileage}} км</div>
+		</div>
+		<div class="unit-auto-table-element">
+			<div class="unit-auto-table-element-title"><h3>Двигатель</h3></div>
+			<div class="unit-auto-table-element-value">{{CAPACITY this.engine_capacity}}</div>
+			<div class="unit-auto-table-element-value">{{this.engine_power}} л.с.</div>
+		</div>
+		<div class="unit-auto-table-element">
+			<div class="unit-auto-table-element-title"><h3>Коробка</h3></div>
+			<div class="unit-auto-table-element-value">{{TRANSMISSION this.transmission}}</div>
+		</div>
+	</div>
+	
+	<div class="unit-auto-text">{{this.description}}</div>
+	
+	<div class="unit-auto-price"><span class="unit-auto-price-value">{{PRICE this.price}}</span> РУБ</div>
+	<a href="/объявление/{{this.title}}/{{this._id}}" target="_blank" class="unit-auto-more">
+		<span class="unit-auto-more-text">ПОДРОБНЕЕ</span>
+		<img class="unit-auto-more-icon" src="images/icons/right_arrow_white.svg">
+	</a>
+</div>

@@ -1,0 +1,114 @@
+<script src="js/search.js"></script>
+<div class="filters">
+	<div class="filters-title"><h1>ПОДБОР АВТОМОБИЛЯ</h1></div>
+	<div class="filters-container">
+		<div class="filter">
+			<div class="filter-title">Марка, модель</div>
+			<div class="filter-condition">
+				<select class="filter-condition-value" data-filter="model_main" data-condition="equal">
+					<option selected value="any">любая</option>
+					{{#each model_main}}
+						<option value="{{this.value}}">{{this.title}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="filter-condition">
+				<select class="filter-condition-value filter-condition-value-last" data-filter="model_minor" data-condition="equal">
+					<option selected value="any">любая</option>
+					{{#each model_minor}}
+						<option class="filter-condition-value-option-hidden" value="{{this.value}}" data-main="{{this.main}}">{{this.title}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+		
+		<div class="filter">
+			<div class="filter-title">Год выпуска</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">с</span>
+				<select class="filter-condition-value" data-type="number" data-filter="year" data-condition="from">
+					<option selected value="any">любой</option>
+					{{#each year}}
+						<option value="{{this}}">{{this}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">по</span>
+				<select class="filter-condition-value filter-condition-value-last" data-type="number" data-filter="year" data-condition="to">
+					<option selected value="any">любой</option>
+					{{#each year}}
+						<option value="{{this}}">{{this}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+		
+		<div class="filter">
+			<div class="filter-title">Пробег</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">от</span>
+				<input type="text" class="filter-condition-value" data-type="number" data-filter="mileage" data-condition="from" placeholder="любой">
+				<span class="filter-condition-text">км</span>
+			</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">до</span>
+				<input type="text" class="filter-condition-value filter-condition-value-last" data-type="number" data-filter="mileage" data-condition="to" placeholder="любой">
+				<span class="filter-condition-text">км</span>
+			</div>
+		</div>
+		
+		<div class="filter">
+			<div class="filter-title">Объем двигателя</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">от</span>
+				<select class="filter-condition-value" data-type="number" data-filter="engine_capacity" data-condition="from">
+					<option selected value="any">любой</option>
+					{{#each engine_capacity}}
+						<option value="{{this}}">{{CAPACITY this}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">до</span>
+				<select class="filter-condition-value filter-condition-value-last" data-type="number" data-filter="engine_capacity" data-condition="to">
+					<option selected value="any">любой</option>
+					{{#each engine_capacity}}
+						<option value="{{this}}">{{CAPACITY this}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+		
+		<div class="filter">
+			<div class="filter-title">Мощность двигателя</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">от</span>
+				<input type="text" class="filter-condition-value" data-type="number" data-filter="engine_power" data-condition="from" placeholder="любая">
+				<span class="filter-condition-text">л.с.</span>
+			</div>
+			<div class="filter-condition">
+				<span class="filter-condition-text">до</span>
+				<input type="text" class="filter-condition-value filter-condition-value-last" data-type="number" data-filter="engine_power" data-condition="to" placeholder="любая">
+				<span class="filter-condition-text">л.с.</span>
+			</div>
+		</div>
+		
+		<div class="filter">
+			<div class="filter-title">Коробка</div>
+			<div class="filter-condition">
+				<select class="filter-condition-value filter-condition-value-last" data-type="number" data-filter="transmission" data-condition="equal">
+					<option selected value="any">любая</option>
+					{{#each transmission}}
+						<option value="{{this}}">{{TRANSMISSION this}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="filters-search">ПОДОБРАТЬ</div>
+</div>
+
+<div class="search-results-title">Результаты поиска:</div>
+
+<div class="auto-list"></div>

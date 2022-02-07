@@ -1,0 +1,418 @@
+
+<link href="trumbowyg/ui/trumbowyg.css" rel="stylesheet">
+<script src="trumbowyg/trumbowyg.js"></script>
+<script src="trumbowyg/ru.js"></script>
+
+<script src="trumbowyg/plugins/trumbowyg.upload.min.js"></script>
+<script src="trumbowyg/plugins/trumbowyg.history.min.js"></script>
+<script src="trumbowyg/plugins/jquery-resizable.min.js"></script>
+<script src="trumbowyg/plugins/trumbowyg.resizimg.min.js"></script>
+<script src="trumbowyg/plugins/trumbowyg.base64.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/editor.css">
+<script src="js/editor.js"></script>
+		
+<div class="content-container">
+
+	<div id="structure">
+		<div id="structure-title">СТРУКТУРА</div>
+		<div id="structure-article" class="structure-button" name="title-article-parameters">ПАРАМЕТРЫ СТАТЬИ</div>
+		<div id="structure-character" class="structure-button" name="title-character-parameters">ПАРАМЕТРЫ ПЕРСОНАЖА</div>
+		<div id="structure-media" class="structure-button" name="title-media">МЕДИА</div>
+		<div id="structure-relationships" class="structure-button" name="title-relationships">ОТНОШЕНИЯ</div>
+		<div id="structure-description" class="structure-button" name="title-description">КРАТКОЕ ОПИСАНИЕ</div>
+		<div id="structure-tabs" class="structure-button" name="title-article-text">СОДЕРЖАНИЕ</div>
+	</div>
+
+	<div id="content" data-article="character" data-character="state">
+
+		<div class="content-title" id="title-article-parameters">ПАРАМЕТРЫ СТАТЬИ</div>
+		
+		<div class="content-input-block">
+			ТИП СТАТЬИ
+			<span class="content-input" id="data-field-type">
+				<select>
+					<option value="1" selected>ПЕРСОНАЖ</option>
+					<option value="2">АВТОРСКАЯ СТАТЬЯ</option>
+				</select>
+			</span>
+			<div class="content-comment">Можно выбрать только при создании статьи</div>
+		</div>
+		
+		<div class="content-input-block">
+			ТИП ПЕРСОНАЖА
+			<span class="content-input" id="data-field-character">
+				<select>
+					<option value="1" selected>ГОСУДАРСТВО</option>
+					<option value="2">ОРГАНИЗАЦИЯ</option>
+					<option value="3">ДРУГИЕ</option>
+				</select>
+			</span>
+		</div>
+		
+		<div class="content-input-block hidden">
+			ТИП АВТОРСКОЙ СТАТЬИ
+			<span class="content-input" id="data-field-article">
+				<select>
+					<option value="1" selected>ТУТОРИАЛ</option>
+					<option value="2">ДРУГОЙ</option>
+				</select>
+			</span>
+		</div>
+		
+		<div class="content-input-block">
+			НАЗВАНИЕ СТАТЬИ
+			<span class="content-input" id="data-field-title">
+				<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+			</span>
+		</div>
+		
+		<div class="content-list-block">
+			
+			<div class="example">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-other-title">
+							<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+			</div>
+				
+			<div class="content-list-title">ПРОЧИЕ ВАРИАНТЫ НАЗВАНИЙ:<div class="content-comment">Условно - теги: используются для поиска, можно включать неканонические названия</div></div>
+			<div class="content-list">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-other-title">
+							<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+				<div class="element-in-list-add">+</div>
+			</div>
+		</div>
+		
+		<div class="space-line"></div>
+		
+		<div class="content-title" id="title-character-parameters">ПАРАМЕТРЫ ПЕРСОНАЖА</div>
+		
+		<div class="content-input-block">
+			ПРЕДЫДУЩАЯ ФОРМА
+			<span class="content-input article-choose" id="data-field-parent-search">
+				<input type="text" placeholder="НЕТ" data-id="0">
+				<div class="article-search" data-params="characters"></div>
+				<span class="article-choosed"><span class="file-input-clear">✖</span></span>
+			</span>
+			<div class="content-comment">Персонаж - исторический предок</div>
+		</div>
+		
+		<div class="content-input-block">
+			СЛЕДУЮЩАЯ ФОРМА
+			<span class="content-input" id="data-field-child">
+				<input type="text" placeholder="НЕТ" data-id="0">
+			</span>
+			<div class="content-comment">Персонаж - исторический потомок</div>
+		</div>
+		
+		<div class="content-input-block" id="found-date">
+			ДАТА ОСНОВАНИЯ
+			<span class="content-input" id="data-field-f-day">
+				<input type="text" placeholder="ДЕНЬ">
+			</span>
+			<span class="content-input" id="data-field-f-month">
+				<select>
+					<option value="0" selected>МЕСЯЦ</option>
+					<option value="1">ЯНВАРЬ</option>
+					<option value="2">ФЕВРАЛЬ</option>
+					<option value="3">МАРТ</option>
+					<option value="4">АПРЕЛЬ</option>
+					<option value="5">МАЙ</option>
+					<option value="6">ИЮНЬ</option>
+					<option value="7">ИЮЛЬ</option>
+					<option value="8">АВГУСТ</option>
+					<option value="9">СЕНТЯБРЬ</option>
+					<option value="10">ОКТЯБРЬ</option>
+					<option value="11">НОЯБРЬ</option>
+					<option value="12">ДЕКАБРЬ</option>
+				</select>
+			</span>
+			<span class="content-input" id="data-field-f-year">
+				<input type="text" placeholder="ГОД">
+			</span>
+			<span class="content-input" id="data-field-f-era">
+				<select>
+					<option value="0" selected>ЭРА</option>
+					<option value="1">Н.Э.</option>
+					<option value="2">ДО Н.Э.</option>
+				</select>
+			</span>
+			<div class="content-comment">Оставить поле пустым, если неизвестно</div>
+		</div>
+		
+		<div class="content-input-block" id="found-date">
+			ДАТА РАСФОРМИРОВАНИЯ
+			<span class="content-input" id="data-field-d-day">
+				<input type="text" placeholder="ДЕНЬ">
+			</span>
+			<span class="content-input" id="data-field-d-month">
+				<select>
+					<option value="0" selected>МЕСЯЦ</option>
+					<option value="1">ЯНВАРЬ</option>
+					<option value="2">ФЕВРАЛЬ</option>
+					<option value="3">МАРТ</option>
+					<option value="4">АПРЕЛЬ</option>
+					<option value="5">МАЙ</option>
+					<option value="6">ИЮНЬ</option>
+					<option value="7">ИЮЛЬ</option>
+					<option value="8">АВГУСТ</option>
+					<option value="9">СЕНТЯБРЬ</option>
+					<option value="10">ОКТЯБРЬ</option>
+					<option value="11">НОЯБРЬ</option>
+					<option value="12">ДЕКАБРЬ</option>
+				</select>
+			</span>
+			<span class="content-input" id="data-field-d-year">
+				<input type="text" placeholder="ГОД">
+			</span>
+			<span class="content-input" id="data-field-d-era">
+				<select>
+					<option value="0" selected>ЭРА</option>
+					<option value="1">Н.Э.</option>
+					<option value="2">ДО Н.Э.</option>
+				</select>
+			</span>
+			<div class="content-comment">Оставить поле пустым, если неизвестно</div>
+		</div>
+		
+		<div class="content-list-block" id="continents">
+			<div class="content-list-title">КОНТИНЕНТЫ:<div class="content-comment">Используется для поиска, можно включать неканонические названия</div></div>
+			<div class="content-list">
+				<div class="element-in-list">
+					<span class="content-input" id="data-field-continent-australia"><input class="continent-checkbox" type="checkbox"></span>АВСТРАЛИЯ
+					<div class="element-in-list-line">
+						<span class="content-input" id="data-field-continent-europe"><input class="continent-checkbox" type="checkbox"></span>ЕВРОПА
+					</div>
+				</div>
+				<div class="element-in-list">
+					<span class="content-input" id="data-field-continent-asia"><input class="continent-checkbox" type="checkbox"></span>АЗИЯ
+					<div class="element-in-list-line">
+						<span class="content-input" id="data-field-continent-north-america"><input class="continent-checkbox" type="checkbox"></span>СЕВЕРНАЯ АМЕРИКА
+					</div>
+				</div>
+				<div class="element-in-list">
+					<span class="content-input" id="data-field-continent-antarctica"><input class="continent-checkbox" type="checkbox"></span>АНТАРКТИДА
+					<div class="element-in-list-line">
+						<span class="content-input" id="data-field-continent-south-america"><input class="continent-checkbox" type="checkbox"></span>ЮЖНАЯ АМЕРИКА
+					</div>
+				</div>
+				<div class="element-in-list">
+					<span class="content-input" id="data-field-continent-africa"><input class="continent-checkbox" type="checkbox"></span>АФРИКА
+				</div>
+			</div>
+		</div>
+		
+		<div class="space-line"></div>
+		
+		<div class="content-title" id="title-media">МЕДИА</div>
+		
+		<div class="content-input-block file-input">
+			ИКОНКА ФЛАГА
+			<span class="content-input" id="data-field-icon">
+				<input type="file" accept="image/jpeg,image/png">
+			</span>
+			<span class="file-input-clear">✖</span>
+			<div class="content-flag-icon"><img id="file-icon" src=""></div>
+			<div class="content-comment">Изображение флага в формате PNG, JPEG</div>
+		</div>
+		
+		<div class="content-list-block file-input">
+			<div class="example">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-preview">
+							<input type="file" accept="image/jpeg,image/png">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+			</div>
+		
+			<div class="content-list-title">ИЗОБРАЖЕНИЯ НА ПРЕВЬЮ:</div>
+			<div class="content-list">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-preview">
+							<input type="file" accept="image/jpeg,image/png">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+				<div class="element-in-list-add">+</div>
+			</div>
+		</div>
+		
+		<div class="content-input-block file-input">
+			ИНТЕРАКТИВНЫЙ ФЛАГ
+			<span class="content-input" id="data-field-svg">
+				<input type="file" accept="image/svg">
+			</span>
+			<span class="file-input-clear">✖</span>
+			<div class="content-flag-icon"><img id="file-svg" src=""></div>
+			<div class="content-comment">Изображение флага в формате SVG</div>
+		</div>
+		
+		<div class="content-input-block" id="flag-size">
+			ОТНОШЕНИЕ СТОРОН ФЛАГА
+			<span class="content-input right-space" id="data-field-svg-width">
+				<input type="text" placeholder="ШИРИНА">
+			</span>
+			НА
+			<span class="content-input" id="data-field-svg-height">
+				<input type="text" placeholder="ВЫСОТА">
+			</span>
+			<div class="content-comment">Пример: <u>5</u> на <u>3</u></div>
+		</div>
+		
+		<div class="space-line"></div>
+		
+		<div class="content-title" id="title-relationships">ОТНОШЕНИЯ</div>
+		
+		<div class="content-list-block" id="relationships-list">
+		
+			<div class="example">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<i>С кем</i>
+						<span class="content-input right-space" class="data-field-relationship-character">
+							<input type="text" placeholder="НЕТ" data-id="0">
+						</span>
+						<i>Тип отношений</i>
+						<span class="content-input" class="data-field-relationship-type">
+							<select>
+								<option value="0" selected>НЕЙТРАЛЬНЫЕ</option>
+								<option value="1">ДРУЖБА</option>
+								<option value="2">ВРАЖДА</option>
+								<option value="3">ЧЛЕН СЕМЬИ</option>
+							</select>
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+			</div>
+		
+			<div class="content-list">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<i>С кем</i>
+						<span class="content-input right-space" class="data-field-relationship-character">
+							<input type="text" placeholder="НЕТ" data-id="0">
+						</span>
+						<i>Тип отношений</i>
+						<span class="content-input" class="data-field-relationship-type">
+							<select>
+								<option value="0" selected>НЕЙТРАЛЬНЫЕ</option>
+								<option value="1">ДРУЖБА</option>
+								<option value="2">ВРАЖДА</option>
+								<option value="3">ЧЛЕН СЕМЬИ</option>
+							</select>
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+				<div class="element-in-list-add">+</div>
+			</div>
+		</div>
+		
+		<div class="space-line"></div>
+		
+		<div class="content-title" id="title-description">КРАТКОЕ ОПИСАНИЕ</div>
+		
+		<div class="content-text-block" id="description">
+			<textarea id="data-field-description" class="content-text selectable"></textarea>
+		</div>
+		
+		<div class="space-line"></div>
+		
+		<div class="content-title" id="title-article-text">СОДЕРЖАНИЕ</div>
+		
+		<div class="content-list-block">
+			
+			<div class="example">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-text-title">
+							<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+			</div>
+		
+			<div class="content-list-title">РАЗДЕЛЫ:</div>
+			<div class="content-list">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-text-title">
+							<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+				<div class="element-in-list-add">+</div>
+			</div>
+		</div>
+		
+		<div class="content-list-block">
+			<div class="content-list-title">РАЗДЕЛ:
+				<span class="content-input">
+					<select>
+						<option value="none" selected disabled>НЕТ</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		
+		<div class="content-list-block">
+			
+			<div class="example">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-card-title">
+							<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+			</div>
+		
+			<div class="content-list-title">КАРТОЧКИ:</div>
+			<div class="content-list">
+				<div class="element-in-list">
+					<div class="content-input-block">
+						<span class="content-input" class="data-field-card-title">
+							<input type="text" placeholder="ВВЕДИТЕ ТЕКСТ">
+						</span>
+					</div>
+					<div class="element-in-list-delete">✖</div>
+				</div>
+				<div class="element-in-list-add">+</div>
+			</div>
+		</div>
+		
+		<div class="content-list-block">
+			<div class="content-list-title">КАРТОЧКА:
+				<span class="content-input">
+					<select>
+						<option value="none" selected disabled>НЕТ</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		
+		<div class="content-text-block" id="article">
+			<textarea id="data-field-card" class="content-text selectable"></textarea>
+		</div>
+	</div>
+</div>

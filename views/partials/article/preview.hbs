@@ -1,0 +1,101 @@
+<div class="preview" data-pos="0">
+	<div class="preview-images">
+		<div class="preview-images-table">
+			{{#each this}}
+				<div class="preview-image">
+					<img src="{{this.image}}">
+				</div>
+			{{/each}}
+		</div>
+		
+		<div class="preview-switch-left"><div></div></div>
+		<div class="preview-switch-right"><div></div></div>
+	</div>
+	
+	<div class="preview-points">
+		{{#each this}}
+			<div class="preview-point {{#if this.active}}active{{/if}}"></div>
+		{{/each}}
+	</div>
+</div>
+
+<style>
+
+	.preview {
+		position: relative;
+		width: 200px;
+		height: 232px;
+		background: #EBECEC;
+		margin-bottom: 10px;
+	}
+
+	.preview-switch-left, .preview-switch-right {
+		position: absolute;
+		width: 35%;
+		height: 100%;
+		top: 0px;
+		cursor: pointer;
+	}
+	
+	.preview-switch-left {
+		left: 0px;
+	}
+	
+	.preview-switch-right {
+		right: 0px;
+	}
+	
+	.preview-switch-left div, .preview-switch-right div {
+		width: 0;
+		height: 0;
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		position: absolute;
+		opacity: 0;
+		bottom: 10px;
+		transition: opacity 0.1s ease-in;
+	}
+	
+	.preview-switch-left div {
+		border-right: 16px solid #434242;
+		left: 10px;
+	}
+	
+	.preview-switch-right div {
+		border-left: 16px solid #434242;
+		right: 10px;
+	}
+	
+	.preview-images:hover div {
+		opacity: 1;
+	}
+	
+	.preview-switch-left.hidden, .preview-switch-right.hidden {
+		display: none;
+	}
+	
+	.preview-points {
+		position: absolute;
+		top: 212px;
+		left: 8px;
+		height: 20px;
+		width: 184px;
+		text-align: center;
+	}
+	
+	.preview-point {
+		position: relative;
+		display: inline-block;
+		width: 6px;
+		height: 5px;
+		border: 3px solid #434242;
+		cursor: pointer;
+		margin-right: 10px;
+		left: 5px;
+	}
+
+	.preview-point.active {
+		background: #434242;
+	}
+
+</style>

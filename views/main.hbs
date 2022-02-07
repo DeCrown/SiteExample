@@ -1,0 +1,28 @@
+<div class="main-header">
+	<div class="main-header-text">Все выставленные на продажу автомобили проверены нашими специалистами и не имеют технических и юридических проблем</div>
+</div>
+<div class="title-background">
+	<div class="title-text"><h1>{{SITE}}</h1></div>
+	<div class="title-contacts">
+		<span class="title-contacts-number">{{NUMBER}}</span>
+		<div class="title-contacts-icons">
+			<img alt="иконка телефона" class="title-contacts-icon-telephone" src="images/icons/telephone.png">
+			<img alt="иконка whatsapp" class="title-contacts-icon-whatsapp" src="images/icons/whatsapp.png">
+		</div>
+	</div>
+</div>
+<div class="content-background">
+	<div class="cars-counters">
+		<div class="cars-counter">
+			<div class="cars-counter-number">{{count}}</div>
+			<div class="cars-counter-text">АВТОМОБИЛ{{count_str}} В ПРОДАЖЕ</div>
+		</div>
+	</div>
+	<a href="/подбор-автомобиля" class="to-search">
+		<span class="to-search-text">ПЕРЕЙТИ К ПОДБОРУ АВТОМОБИЛЯ</span>
+		<img class="to-search-icon" src="images/icons/right_arrow_black.svg">
+	</a>
+	{{#each articles}}
+		{{> auto}}
+	{{/each}}
+</div>

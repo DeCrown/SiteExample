@@ -1,0 +1,15 @@
+<script src="js/mobile/main.js"></script>
+<div class="main-header">Все выставленные на продажу автомобили проверены нашими специалистами и не имеют технических и юридических проблем</div>
+<div class="title-background">
+	<div class="title-gray"></div>
+	<div class="title-text"><h1>{{SITE_BR SITE}}</h1></div>
+</div>
+{{> mobile/contacts}}
+<div class="cars-counters">
+	<div class="cars-counter">
+		<div class="cars-counter-number">{{count}}</div>
+		<div class="cars-counter-text">Автомобил{{count_str}} в продаже</div>
+	</div>
+</div>
+<a href="/подбор-автомобиля" class="to-search white-button">Перейти к подбору автомобиля</a>
+<div class="auto-list"></div>
